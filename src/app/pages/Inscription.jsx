@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
+
 const Inscription = () => {
   const [prenom, setPrenom] = useState("");
   const [nom, setNom] = useState("");
@@ -20,7 +21,7 @@ const Inscription = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/auth/inscription",
+        `${API_URL}/api/auth/inscription`,
         {
           method: "POST",
           headers: {
@@ -49,9 +50,8 @@ const Inscription = () => {
 
       <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8">
 
-        {/* TITLE */}
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
-           Inscription
+          Inscription
         </h1>
 
         <form onSubmit={handleRegister} className="space-y-4">
@@ -85,15 +85,12 @@ const Inscription = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button
-            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition"
-          >
+          <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">
             S'inscrire
           </button>
 
         </form>
 
-        {/* LINK */}
         <p className="text-center mt-5 text-sm text-gray-600">
           Déjà un compte ?{" "}
           <Link
