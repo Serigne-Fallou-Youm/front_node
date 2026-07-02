@@ -44,6 +44,67 @@ const Connexion = () => {
     }
   };
 
+  exports.connexion = async (req,res)=>{
+  try{
+
+    console.log("BODY:", req.body);
+
+    const {email,password} = req.body;
+
+    const user = await User.findOne({email});
+
+    console.log("USER:", user);
+
+    if(!user){
+      return res.status(400).json({
+        message:"Utilisateur introuvable"
+      });
+    }
+
+    const passwordCorrect = await bcrypt.compare(
+      password,
+      user.password
+    );
+
+    console.log("PASSWORD OK:", passwordCorrect);
+
+    if(!passwordCorrect){
+      return res.status(400).json({
+        message:"Mot de passe incorrect"
+      });
+    }
+
+    console.log("EMAIL:", email);
+console.log("PASSWORD:", password);
+console.log("USER FOUND:", user);
+console.log("USER PASSWORD:", user?.password);
+
+    const token = jwt.sign(
+      { id:user._id },
+      process.env.JWT_SECRET,
+      { expiresIn:"1d" }
+    );
+
+    return res.json({
+      message:"Connexion réussie",
+      token,
+      user:{
+        id:user._id,
+        prenom:user.prenom,
+        nom:user.nom,
+        email:user.email
+      }
+    });
+
+  }catch(error){
+    console.log("ERREUR CONNEXION:", error);
+
+    res.status(500).json({
+      message:"Erreur serveur"
+    });
+  }
+};
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50">
       <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8">
