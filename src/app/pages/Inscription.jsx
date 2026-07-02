@@ -31,7 +31,10 @@ const Inscription = () => {
         }
       );
 
-      const result = await response.json();
+      const text = await response.text();
+console.log("Réponse du serveur :", text);
+
+const result = text ? JSON.parse(text) : {};
 
       if (response.ok) {
         alert("Inscription réussie ✔️");
@@ -39,10 +42,15 @@ const Inscription = () => {
       } else {
         alert(result.message || "Erreur inscription");
       }
-    } catch (error) {
-      console.error(error);
-      alert("Erreur serveur");
-    }
+   } catch (error) {
+  console.error("Erreur :", error);
+
+  if (error instanceof SyntaxError) {
+    alert("Le serveur n'a pas renvoyé de JSON.");
+  } else {
+    alert(error.message);
+  }
+}
   };
 
   return (
