@@ -26,7 +26,7 @@ const Detail = () => {
   // ======================
   const fetchQuestion = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/questions/${id}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/questions/${id}`);
       const data = await res.json();
 
       setQuestion(data);
@@ -42,7 +42,7 @@ const Detail = () => {
   // ======================
   const fetchAnswers = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/answers/${id}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/answers/${id}`);
       const data = await res.json();
 
       setAnswers(Array.isArray(data) ? data : []);
@@ -61,7 +61,7 @@ const Detail = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:3000/api/answers/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/answers/${id}`,
         {
           method: "POST",
           headers: {
@@ -86,7 +86,7 @@ const Detail = () => {
   // ======================
   const deleteQuestion = async () => {
     try {
-      await fetch(`http://localhost:3000/api/questions/${id}`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/questions/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -102,7 +102,7 @@ const Detail = () => {
   // ======================
   const updateQuestion = async () => {
     try {
-      await fetch(`http://localhost:3000/api/questions/${id}`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/questions/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -126,7 +126,7 @@ const Detail = () => {
   // ======================
   const deleteAnswer = async (answerId) => {
     try {
-      await fetch(`http://localhost:3000/api/answers/${answerId}`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/answers/${answerId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -144,7 +144,7 @@ const Detail = () => {
   // ======================
   const updateAnswer = async (answerId) => {
     try {
-      await fetch(`http://localhost:3000/api/answers/${answerId}`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/answers/${answerId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -174,7 +174,7 @@ const Detail = () => {
   const voteQuestion = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/questions/${id}/vote`,
+        `${import.meta.env.VITE_API_URL}/api/questions/${id}/vote`,
         {
           method: "PATCH",
           headers: { Authorization: `Bearer ${token}` },
@@ -198,7 +198,7 @@ const Detail = () => {
   const voteAnswer = async (answerId) => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/answers/vote/${answerId}`,
+        `${import.meta.env.VITE_API_URL}/api/answers/vote/${answerId}`,
         {
           method: "PATCH",
           headers: { Authorization: `Bearer ${token}` },
@@ -225,7 +225,7 @@ const Detail = () => {
   const markBestAnswer = async (answerId) => {
     try {
       await fetch(
-        `http://localhost:3000/api/questions/${id}/best/${answerId}`,
+        `${import.meta.env.VITE_API_URL}/api/questions/${id}/best/${answerId}`,
         {
           method: "PATCH",
           headers: { Authorization: `Bearer ${token}` },

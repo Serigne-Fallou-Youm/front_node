@@ -13,7 +13,7 @@ const Profil = () => {
     const getProfil = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/auth/profile/${user.id}`
+          `${import.meta.env.VITE_API_URL}/api/auth/profile/${user.id}`
         );
 
         const data = await response.json();

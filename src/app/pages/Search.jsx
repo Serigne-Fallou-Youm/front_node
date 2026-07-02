@@ -8,7 +8,7 @@ const Search = () => {
   const fetchSearch = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/questions/search?q=${query}`
+        `${import.meta.env.VITE_API_URL}/api/questions/search?q=${query}`
       );
 
       const data = await res.json();

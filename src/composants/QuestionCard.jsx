@@ -19,7 +19,7 @@ const QuestionCard = ({ question }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/questions/${question._id}/like`,
+        `${import.meta.env.VITE_API_URL}/api/questions/${question._id}/like`,
         {
           method: "PATCH",
           headers: {

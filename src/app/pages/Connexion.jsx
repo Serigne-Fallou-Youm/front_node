@@ -20,7 +20,7 @@ const Connexion = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/auth/connexion",
+        "${import.meta.env.VITE_API_URL}/api/auth/connexion",
         {
           method: "POST",
           headers: {
