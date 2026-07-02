@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 const API_URL = import.meta.env.VITE_API_URL;
+
 const Connexion = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,18 +20,17 @@ const Connexion = () => {
     }
 
     try {
-      const response = await fetch(
-        "${import.meta.env.VITE_API_URL}/api/auth/connexion",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        }
-      );
+      const response = await fetch(`${API_URL}/api/auth/connexion`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-      const result = await response.json();
+      // Vérifie que la réponse est bien du JSON
+      const text = await response.text();
+      const result = text ? JSON.parse(text) : {};
 
       if (response.ok) {
         login(result);
@@ -39,24 +39,19 @@ const Connexion = () => {
         alert(result.message || "Email ou mot de passe incorrect");
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       alert("Erreur serveur");
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50">
-
       <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8">
-
-        {/* TITLE */}
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
-           Connexion
+          Connexion
         </h1>
 
         <form onSubmit={handleLogin} className="space-y-5">
-
-          {/* EMAIL */}
           <div>
             <label className="text-sm text-gray-600">Email</label>
             <input
@@ -68,7 +63,6 @@ const Connexion = () => {
             />
           </div>
 
-          {/* PASSWORD */}
           <div>
             <label className="text-sm text-gray-600">Mot de passe</label>
             <input
@@ -80,16 +74,14 @@ const Connexion = () => {
             />
           </div>
 
-          {/* BUTTON */}
           <button
+            type="submit"
             className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition"
           >
             Se connecter
           </button>
-
         </form>
 
-        {/* LINK */}
         <p className="text-center mt-5 text-sm text-gray-600">
           Pas encore de compte ?{" "}
           <Link
@@ -99,7 +91,6 @@ const Connexion = () => {
             Créer un compte
           </Link>
         </p>
-
       </div>
     </div>
   );
