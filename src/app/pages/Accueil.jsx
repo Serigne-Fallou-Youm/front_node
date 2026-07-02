@@ -27,7 +27,7 @@ const Accueil = () => {
                         Bienvenue sur 
 
                         <span className="text-blue-600">
-                            {" "}Mini Stack Overflow 🚀
+                            {" "}Mini Stack Overflow 
                         </span>
 
                     </h1>
@@ -51,7 +51,7 @@ const Accueil = () => {
 
                                 <h2 className="text-2xl font-bold">
 
-                                    Bonjour {user.prenom} {user.nom} 👋
+                                    Bonjour {user.prenom} {user.nom} 
 
                                 </h2>
 
@@ -59,7 +59,7 @@ const Accueil = () => {
 
                                 <p className="mt-3 text-blue-100">
 
-                                    📧 {user.email}
+                                     {user.email}
 
                                 </p>
 
@@ -85,7 +85,7 @@ const Accueil = () => {
 
                         <h2 className="text-2xl font-bold text-gray-800">
 
-                            Questions récentes 💬
+                            Questions récentes 
 
                         </h2>
 

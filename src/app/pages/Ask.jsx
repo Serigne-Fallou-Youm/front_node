@@ -101,135 +101,93 @@ const Ask = () => {
 
 
     };
+return (
+    <div className="min-h-screen bg-gradient-to-br from-indigo-700 via-blue-600 to-cyan-500 flex items-center justify-center px-4 py-10">
 
+        <div className="w-full max-w-4xl bg-white/95 backdrop-blur-xl rounded-[30px] shadow-2xl overflow-hidden">
 
+            {/* En-tête */}
+            <div className="bg-gradient-to-r from-indigo-700 via-blue-600 to-cyan-500 text-white p-10 text-center">
 
+                <div className="w-24 h-24 rounded-full bg-white/20 flex items-center justify-center mx-auto text-5xl shadow-lg">
+                    <span className="text-4xl">❓</span>
+                </div>
 
+                <h1 className="text-4xl font-extrabold mt-5">
+                    Poser une question
+                </h1>
 
-    return (
+                <p className="mt-3 text-blue-100 text-lg">
+                    Décrivez clairement votre problème afin d'obtenir les meilleures réponses.
+                </p>
 
+            </div>
 
-        <div className="min-h-screen bg-gray-100 p-10">
-
-
-
-            <h1 className="text-3xl font-bold mb-6">
-
-                Poser une question
-
-            </h1>
-
-
-
-
+            {/* Formulaire */}
             <form
-
                 onSubmit={handleSubmit}
-
-                className="bg-white p-6 rounded shadow max-w-3xl"
-
+                className="p-10 space-y-7"
             >
 
+                <div>
+                    <label className="block text-gray-700 font-bold mb-2">
+                         Titre
+                    </label>
 
+                    <input
+                        type="text"
+                        placeholder="Ex : Erreur React lors du démarrage"
+                        value={titre}
+                        onChange={(e) => setTitre(e.target.value)}
+                        className="w-full rounded-xl border-2 border-blue-100 bg-blue-50 p-4 text-lg focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-200 outline-none transition"
+                    />
+                </div>
 
-                <input
+                <div>
+                    <label className="block text-gray-700 font-bold mb-2">
+                         Description
+                    </label>
 
+                    <textarea
+                        placeholder="Expliquez votre problème avec le maximum de détails..."
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        className="w-full rounded-xl border-2 border-blue-100 bg-blue-50 p-4 h-48 text-lg resize-none focus:border-cyan-500 focus:bg-white focus:ring-4 focus:ring-cyan-200 outline-none transition"
+                    />
+                </div>
 
-                    type="text"
+                <div>
+                    <label className="block text-gray-700 font-bold mb-2">
+                         Tags
+                    </label>
 
+                    <input
+                        type="text"
+                        placeholder="React, Node.js, Express, MongoDB..."
+                        value={tags}
+                        onChange={(e) => setTags(e.target.value)}
+                        className="w-full rounded-xl border-2 border-blue-100 bg-blue-50 p-4 text-lg focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-200 outline-none transition"
+                    />
 
-                    placeholder="Titre de la question"
-
-
-                    value={titre}
-
-
-                    onChange={(e)=>setTitre(e.target.value)}
-
-
-                    className="w-full border p-3 rounded mb-4"
-
-
-                />
-
-
-
-
-
-
-                <textarea
-
-
-                    placeholder="Description de votre problème"
-
-
-                    value={description}
-
-
-                    onChange={(e)=>setDescription(e.target.value)}
-
-
-                    className="w-full border p-3 rounded h-40 mb-4"
-
-
-                />
-
-
-
-
-
-
-                <input
-
-
-                    type="text"
-
-
-                    placeholder="Tags séparés par virgule : React, Node"
-
-
-                    value={tags}
-
-
-                    onChange={(e)=>setTags(e.target.value)}
-
-
-                    className="w-full border p-3 rounded"
-
-
-                />
-
-
-
-
-
-
+                    <p className="text-sm text-gray-500 mt-2">
+                        Exemple : React, JavaScript, Laravel, Node.js
+                    </p>
+                </div>
 
                 <button
-
-
-                    className="mt-5 bg-blue-600 text-white px-6 py-2 rounded"
-
-
+                    type="submit"
+                    className="w-full py-4 rounded-xl bg-gradient-to-r from-indigo-700 via-blue-600 to-cyan-500 text-white font-bold text-xl shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300"
                 >
-
-                    Publier
-
-
+                     Publier la question
                 </button>
-
-
-
-
 
             </form>
 
-
-
         </div>
 
+    </div>
+);
 
-    );
 
 
 };

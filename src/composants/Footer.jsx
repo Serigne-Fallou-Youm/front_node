@@ -10,7 +10,7 @@ const Footer = () => {
         {/* LOGO */}
         <div>
           <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-            MiniStack 🚀
+            MiniStack 
           </h1>
 
           <p className="text-gray-400 mt-4 text-sm leading-relaxed">
@@ -30,21 +30,21 @@ const Footer = () => {
               to="/"
               className="hover:text-blue-400 transition"
             >
-              🏠 Questions
+               Questions
             </NavLink>
 
             <NavLink
               to="/ask"
               className="hover:text-green-400 transition"
             >
-              ✍️ Poser une question
+               Poser une question
             </NavLink>
 
             <NavLink
               to="/profil"
               className="hover:text-purple-400 transition"
             >
-              👤 Mon profil
+               Mon profil
             </NavLink>
 
           </div>

@@ -60,7 +60,7 @@ const Navbar = () => {
             to="/ask"
             className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-2 rounded-full shadow hover:scale-105 transition"
           >
-            + Poser
+            + Poser une question
           </NavLink>
         )}
 

@@ -278,17 +278,17 @@ const Detail = () => {
                 onClick={voteQuestion}
                 className="bg-blue-100 px-3 py-1 rounded"
               >
-                👍 {question.votes || 0}
+                 {question.votes || 0}
               </button>
 
               {userId === question.auteur?._id && (
                 <>
                   <button onClick={() => setEditQuestion(true)}>
-                    ✏️ Modifier
+                     Modifier
                   </button>
 
                   <button onClick={deleteQuestion}>
-                    🗑️ Supprimer
+                     Supprimer
                   </button>
                 </>
               )}
@@ -321,7 +321,7 @@ const Detail = () => {
       {/* ANSWER FORM */}
       <div className="bg-white mt-6 p-5 rounded shadow">
 
-        <h2 className="font-bold mb-3">💬 Répondre</h2>
+        <h2 className="font-bold mb-3"> Répondre</h2>
 
         {!token ? (
           <p className="text-red-500">
@@ -347,7 +347,7 @@ const Detail = () => {
       <div className="mt-6">
 
         <h2 className="text-xl font-bold mb-3">
-          💬 Réponses ({answers.length})
+           Réponses ({answers.length})
         </h2>
 
         {sortedAnswers.map((a) => (
@@ -383,7 +383,7 @@ const Detail = () => {
                     onClick={() => voteAnswer(a._id)}
                     className="bg-gray-100 px-2 rounded"
                   >
-                    👍 {a.votes || 0}
+                     {a.votes || 0}
                   </button>
 
                   {userId === a.author?._id && (
@@ -394,13 +394,13 @@ const Detail = () => {
                           setEditAnswerText(a.content);
                         }}
                       >
-                        ✏️
+                        
                       </button>
 
                       <button
                         onClick={() => deleteAnswer(a._id)}
                       >
-                        🗑️
+                        
                       </button>
                     </>
                   )}
@@ -411,7 +411,7 @@ const Detail = () => {
                         markBestAnswer(a._id)
                       }
                     >
-                      ⭐ Best
+                       Best
                     </button>
                   )}
 

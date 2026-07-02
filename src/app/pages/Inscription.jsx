@@ -51,7 +51,7 @@ const Inscription = () => {
 
         {/* TITLE */}
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
-          🚀 Inscription
+           Inscription
         </h1>
 
         <form onSubmit={handleRegister} className="space-y-4">

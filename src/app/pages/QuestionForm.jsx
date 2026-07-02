@@ -37,7 +37,7 @@ const QuestionForm = () => {
       const data = await res.json();
 
       if (res.ok) {
-        alert("Question publiée avec succès 🚀");
+        alert("Question publiée avec succès ");
         navigate("/");
       } else {
         alert(data.message);

@@ -51,7 +51,7 @@ const Connexion = () => {
 
         {/* TITLE */}
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
-          🔐 Connexion
+           Connexion
         </h1>
 
         <form onSubmit={handleLogin} className="space-y-5">
